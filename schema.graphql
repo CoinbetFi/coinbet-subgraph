@@ -1,0 +1,34 @@
+type BetSettledEntity @entity {
+  id: ID!
+  first: BigInt!
+  second: BigInt!
+  third: BigInt!
+  reward: BigInt!
+  requestId: BigInt!
+  player: Bytes!
+  timestamp: BigInt!
+}
+
+type BetPlacedEntity @entity {
+  id: ID!
+  betAmount: BigInt!
+  requestId: BigInt!
+  player: Bytes!
+  timestamp: BigInt!
+}
+
+type BetsStatisticsForAddressEntity @entity {
+  id: ID!
+  totalBets: Int!
+  totalBetsVolume: BigInt!
+  totalRewardsVolume: BigInt!
+}
+
+type BetsStatisticsEntity @entity {
+  id: ID!
+  players: [Bytes!]!
+  playersCount: Int!
+  totalBets: Int!
+  totalBetsVolume: BigInt!
+  totalRewardsVolume: BigInt!
+}

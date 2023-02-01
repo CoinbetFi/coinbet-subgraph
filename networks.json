@@ -1,0 +1,12 @@
+{
+  "mumbai": {
+    "CoinbetSlotMachine": {
+      "address": "0xc9B7453a4Eaa402ee3b9404206d38f1244685E3c"
+    }
+  },
+  "matic": {
+    "CoinbetSlotMachine": {
+      "address": "0x52A396c999d70c3Ccb2949F77DEE482165A428D7"
+    }
+  }
+}

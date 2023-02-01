@@ -1,0 +1,54 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: CoinbetSlotMachine
+    network: matic
+    source:
+      address: "0x52A396c999d70c3Ccb2949F77DEE482165A428D7"
+      abi: CoinbetSlotMachine
+      startBlock: 37677508
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - BetPlaced
+        - BetRefunded
+        - BetSettled
+        - CoinbetTokenFeeWaiverThresholdUpdated
+        - HousePoolUpdated
+        - MaxBetAmountUpdated
+        - MinBetAmountUpdated
+        - OwnershipTransferred
+        - Paused
+        - ProtocolFeeUpdated
+        - Unpaused
+      abis:
+        - name: CoinbetSlotMachine
+          file: CoinbetSlotMachine/abis/CoinbetSlotMachine.json
+      eventHandlers:
+        - event: BetPlaced(uint256,uint256,address)
+          handler: handleBetPlaced
+        - event: BetRefunded(uint256,uint256,address)
+          handler: handleBetRefunded
+        - event: BetSettled(uint256,uint256,uint256,uint256,uint256,address)
+          handler: handleBetSettled
+        - event: CoinbetTokenFeeWaiverThresholdUpdated(uint256)
+          handler: handleCoinbetTokenFeeWaiverThresholdUpdated
+        - event: HousePoolUpdated(address)
+          handler: handleHousePoolUpdated
+        - event: MaxBetAmountUpdated(uint256)
+          handler: handleMaxBetAmountUpdated
+        - event: MinBetAmountUpdated(uint256)
+          handler: handleMinBetAmountUpdated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: ProtocolFeeUpdated(uint256)
+          handler: handleProtocolFeeUpdated
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: CoinbetSlotMachine/CoinbetSlotMachine.wasm
